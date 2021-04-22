@@ -1,0 +1,25 @@
+{
+  "name": "lulka-kozacka.ua",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-cssnano": "*",
+    "gulp-filesize": "*",
+    "gulp-less": "*",
+    "gulp-uglify": "*",
+    "gulp-watch": "*",
+    "run-sequence": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/FirstUkrainianStudioSite/lulka-kozacka.ua.git"
+  },
+  "author": "webstudio.biz",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/FirstUkrainianStudioSite/lulka-kozacka.ua#readme"
+}

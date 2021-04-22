@@ -1,0 +1,32 @@
+﻿#------------------------------------- Общие настройки ------------------------------------#
+desktop.ini
+*.zip
+*.rar
+*.7z
+*.psd
+*.log
+/nbproject/private/
+/node_modules
+bower_components
+/.idea
+/.vscode
+/tmp
+#---------------------------------- Настройки для Bitrix ---------------------------------#
+public_html/upload/
+public_html/tmp/
+public_html/bitrix/
+public_html/web.config
+public_html/images/
+#----------------------------- Кастомные настройки для проекта -----------------------------#
+public_html/test.php
+
+#----------------------------- Кастомные настройки для linux -----------------------------#
+www
+.bash_history
+.bash_logout
+.bashrc
+.ssh/
+.gitconfig
+
+#-------------------------------Visual Studio Code----------------------------------#
+*.code-workspace
