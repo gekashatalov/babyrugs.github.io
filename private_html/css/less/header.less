@@ -1,0 +1,147 @@
+body{
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	font-family: @main-font;
+	color: @main-font-color;
+}
+header{
+	position: absolute;
+    width: 100%;
+    z-index: 2;
+    max-width: 1190px;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+}
+.header{
+	&-menu{
+		&-list{
+			padding: 20px 40px;
+			max-width: 1190px;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@media (max-width:740px){
+				padding: 20px 15px;
+			}
+		}
+		&-item{
+			margin: 0 15px;
+			@media (max-width:740px) {
+				display: none;
+			}
+			a{
+				display: block;
+				padding: 5px 0;
+				font-family: @main-font;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 14px;
+				line-height: 143%;
+				font-feature-settings: 'liga' off;
+				color: @main-font-color;
+			}
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+		&-main{
+			margin: 0 auto;
+			a{
+				display: block;
+			}
+			@media (max-width:900px) {
+				order: -1;
+				margin: 0 auto 0 0;
+			}
+			@media (max-width:740px){
+				order: initial;
+				margin: 0 10px 0 auto;
+			}
+		}
+		&-out{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background:  rgba(79, 79, 79, 0.1);
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			@media (max-width:740px) {
+				display: none;
+			}
+			a{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				img{
+					object-fit: contain;
+					object-position: center;
+					width: 100%;
+				}
+			}
+		}
+		&-burger{
+			display: none;
+			align-items: center;
+			height: 22px;
+			cursor: pointer;
+			margin-left: 15px;			
+			@media (max-width:740px) {
+				display: flex;
+			}
+		}
+		&-btn{
+			display: block;
+			position: relative;
+			background-color: transparent;
+			border: none;
+			&-line{
+				display: block;
+				width: 33px;
+				height: 4px;
+				background-color: #333;
+				transition: all .3s linear;
+				border-radius: 2px;
+				&::before{
+					content: "";
+					position: absolute;
+					top: -9px;
+					display: block;
+					width: 33px;
+					height: 4px;
+					background-color: #333;
+					transition: all .3s linear;
+					border-radius: 2px;
+				}
+				&::after{
+					content: "";
+					position: absolute;
+					bottom: -9px;
+					display: block;
+					width: 33px;
+					height: 4px;
+					background-color: #333;
+					transition: all .3s linear;
+					border-radius: 2px;
+				}
+			}
+			&.active{
+				.header-menu-btn-line{
+					transform: translateX(50px);
+					background: transparent;
+					&::before{
+						transform: rotate(45deg) translate(-28px,41px);
+					}
+					&::after{
+						transform: rotate(-45deg) translate(-29px,-41px);
+					}
+				}
+			}
+		}
+	}
+}

@@ -21,9 +21,20 @@ function buildStyles() {
 		cascade: false
 	}))
 	.pipe(concat('style.min.css'));
-	cssData.pipe(cssnano({zindex: false}));
+	cssData.pipe(cssnano({
+		zindex: false,
+		discardUnused: false,
+	}));
 	cssData.pipe(gulp.dest('public_html/css'));
 	return cssData;
+}
+
+function buildFonts() {
+	var fonts = gulp.src([
+		"private_html/fonts/**/*.*"
+	]);
+	fonts.pipe(gulp.dest('public_html/fonts'));
+	return fonts;
 }
 
 function buildScripts() {
@@ -42,9 +53,10 @@ function buildScripts() {
 function watchFiles() {
 	gulp.watch('private_html/css/**/*.*', buildStyles);
 	gulp.watch('private_html/js/**/*.*', buildScripts);
+	gulp.watch('private_html/fonts/**/*.*', buildFonts);
 };
 
-const build = gulp.parallel(buildStyles, buildScripts);
+const build = gulp.parallel(buildStyles, buildScripts, buildFonts);
 const watch = gulp.parallel(watchFiles);
 const oDefault = gulp.series(build, watch);
 

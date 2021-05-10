@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "cssnano": "^5.0.0-rc.2"
+  },
   "devDependencies": {
     "gulp": "*",
     "gulp-autoprefixer": "*",
