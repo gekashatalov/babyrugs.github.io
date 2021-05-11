@@ -254,6 +254,15 @@ h4{
 		line-height: 26px;
 	}
 }
+.underlined{
+	font-family: @main-font;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 40px;
+	text-decoration-line: line-through;
+	color: #BDBDBD;
+}
 .about{
 	margin: 120px auto 0;
 	display: grid;
@@ -413,6 +422,13 @@ h4{
 	margin: 120px auto 0;
 	max-width: 1190px;
 	padding: 0 40px;
+	@media (max-width:1024px){
+		margin: 80px auto 0;
+	}
+	@media (max-width:640px){
+		padding: 0 15px;
+		margin: 40px auto 0;
+	}
 	h2{
 		text-align: center;
 	}
@@ -421,18 +437,117 @@ h4{
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 64px 5%;
-		@media (max-width:960px) {
+		justify-items: center;
+		@media (max-width:990px) {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 24px;
 		}
+		@media (max-width:680px) {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 16px;
+		}
 	}
 	.product-card{
+		max-width: 340px;
 		display: grid;
 		gap: 16px;
 		padding-bottom: 24px;
 		border-radius: 16px;
 		box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
 		overflow: hidden;
-		// justify-items: center;
+		.block-size{
+			display: flex;
+			justify-content: space-between;
+			padding: 0 24px;
+			&-title{
+				font-family: @main-font;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 20px;
+				color: #333333;
+			}
+		}
+		.block-prices{
+			display: flex;
+			justify-content: space-between;
+			padding: 0 24px;
+		}
+		.btn-buy{
+			justify-self: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 140px;
+			padding: 10px;
+			background: #70BEE4;
+			border-radius: 8px;
+			font-family: @main-font;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 14px;
+			line-height: 20px;
+			text-align: center;
+			font-feature-settings: 'liga' off;
+			color: #FFFFFF;
+		}
+		.product-image{
+			display: flex;
+			border-radius: 16px;
+			overflow: hidden;
+			img{
+				width: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+}
+.material{
+	margin: 120px auto 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
+	max-width: 1190px;
+	padding: 0 40px;
+	@media (max-width:680px){
+		grid-template-columns: repeat(1, 1fr);
+		gap: 40px;
+		justify-items: center;
+	}
+	@media (max-width:640px){
+		padding: 0 15px;
+		margin-top: 48px;
+	}
+	&-description{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-left: 10%;
+		@media (max-width:1024px){
+			padding-left: 2%;
+		}
+		@media (max-width:680px){
+			order: -1;
+			padding-left: initial;
+		}
+		p{
+			font-family: @main-font;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 32px;
+			margin-top: 32px;
+			color:  #18191F;
+			@media (max-width:1024px){
+				margin-top: 24px;
+				font-size: 16px;
+				line-height: 28px;
+			}
+			@media (max-width:640px){
+				margin-top: 16px;
+				font-size: 14px;
+				line-height: 22px;
+			}
+		}
 	}
 }

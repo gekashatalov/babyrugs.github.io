@@ -1,0 +1,92 @@
+.selectric-white{
+	.selectric {
+		border: none;
+		background: transparent;
+		position: relative;
+		&-wrapper {
+			cursor: pointer;
+			align-self: center;	
+			@media (max-width:940px) {
+				align-self: flex-start;
+			}
+		}	
+		&-items {
+			display: none;
+			background: transparent;
+			border: none;
+			box-shadow: 0px 12px 14px 1px rgba(0, 0, 0, 0.1);
+			li.highlighted,
+			li.selected {
+				background: transparent;
+				color: #000;
+			}
+			.selectric-scroll{
+				overflow: hidden;
+			}
+		}	
+		&-open .selectric-items {
+			display: block;
+		}	
+		.label {
+			margin: 0 18px 0 0;
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-family: @main-font;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 14px;
+			color: #000;
+			height: initial;
+			line-height: unset;
+			@media (max-width:480px) {
+				font-size: 14px;
+			}
+		}	
+		&-items li {
+			display: block;
+			padding: 10px;
+			color: #000;
+			cursor: pointer;
+			list-style: none;
+			margin: 0;
+			font-size: 14px;
+			line-height: unset;
+			border-bottom: 1px solid #000;	
+			&:hover {
+				background-color: transparent;
+				color: #a68676;
+				border-bottom-color: #a68676;
+			}
+		}	
+		&-scroll {
+			background-color: #FFF;
+			max-height: 50vh;
+		}
+		.button{
+			height: initial;
+			top: 50%;
+			width: 11px;
+			height: 7px;
+			transform: translateY(-50%);
+		}	
+		.button::after {
+			content: " ";
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: auto;
+			width: 11px;
+			height: 7px;
+			border: none;
+			border-top-color: none;
+			border-bottom: none;
+			background: url('/img/icons/select-btn.png') center no-repeat;
+			transition: transform 0.3s ease;
+		}	
+		&-open .selectric .button::after {
+			transform: rotate(180deg);
+		}
+	}
+}
