@@ -68,7 +68,7 @@ main{
 				font-weight: 600;
 				font-size: 24px;
 				line-height: 32px;
-				color: #18191F;
+				color: @main-font-color;
 				@media (max-width:1024px) {
 					font-size: 22px;
 					line-height: 32px;
@@ -302,7 +302,7 @@ h4{
 				font-weight: normal;
 				font-size: 18px;
 				line-height: 32px;
-				color: #18191F;
+				color: @main-font-color;
 				@media (max-width:1024px){
 					font-size: 16px;
 					line-height: 28px;
@@ -537,7 +537,7 @@ h4{
 			font-size: 18px;
 			line-height: 32px;
 			margin-top: 32px;
-			color:  #18191F;
+			color:  @main-font-color;
 			@media (max-width:1024px){
 				margin-top: 24px;
 				font-size: 16px;
@@ -547,6 +547,92 @@ h4{
 				margin-top: 16px;
 				font-size: 14px;
 				line-height: 22px;
+			}
+		}
+	}
+}
+.advantages{
+	margin: 120px auto 0;
+	max-width: 1190px;
+	padding: 0 40px;
+	@media (max-width:1024px) {
+		margin: 80px auto 0;
+	}
+	@media (max-width:640px){
+		padding: 0 15px;
+		margin-top: 64px;
+	}
+	h2{
+		text-align: center;
+		@media (max-width:480px){
+			text-align: left;
+		}
+	}
+	>p{
+		margin: 16px auto 0;
+		max-width: 730px;
+		font-family: @main-font;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 32px;
+		text-align: center;
+		color: @main-font-color;
+		@media (max-width:1024px) {
+			font-size: 16px;
+			line-height: 28px;
+			display: flex;
+			flex-direction: column;
+		}
+		@media (max-width:680px){
+			display: block;
+		}
+		@media (max-width:640px){
+			font-size: 14px;
+			line-height: 22px;
+			max-width: 85%;
+		}
+		@media (max-width:480px){
+			text-align: left;
+			max-width: initial;
+		}
+	}
+	&-items{
+		margin-top: 48px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px 32px;
+		justify-items: center;
+		@media (max-width:990px){
+			margin-top: 65px;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 60px 16px;
+		}		
+		@media (max-width:640px){
+			margin-top: 40px;
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+		&-item{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			max-width: 350px;
+			h4{
+				margin-top: 24px;
+				text-align: center;
+			}
+			p{
+				margin-top: 8px;
+				font-family: @main-font;
+				font-weight: normal;
+				font-size: 16px;
+				line-height: 32px;
+				text-align: center;
+				color: @main-font-color;
+				@media (max-width:1024px) {
+					font-size: 14px;
+					line-height: 22px;
+				}
 			}
 		}
 	}
