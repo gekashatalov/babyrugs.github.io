@@ -8,7 +8,8 @@ const
 	cssnano = require('gulp-cssnano'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
-	filesize = require('gulp-filesize');
+	filesize = require('gulp-filesize'),
+	browserSync = require('browser-sync').create();
 
 function buildStyles() {
 	var cssData = gulp.src([
@@ -54,6 +55,12 @@ function watchFiles() {
 	gulp.watch('private_html/css/**/*.*', buildStyles);
 	gulp.watch('private_html/js/**/*.*', buildScripts);
 	gulp.watch('private_html/fonts/**/*.*', buildFonts);
+	// browserSync.init({
+	// 	// tunnel: "my-custom-site",
+    //     server: {			
+    //         baseDir: "./public_html/",
+    //     },
+    // });
 };
 
 const build = gulp.parallel(buildStyles, buildScripts, buildFonts);
