@@ -15,11 +15,24 @@ footer{
 		display: grid;
 		grid-template-columns: 1.5fr 3.5fr;
 		gap: 64px;
+		@media (max-width:1024px){
+			margin: 40px auto 0;
+		}
+		@media (max-width:900px) {			
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (max-width:640px) {
+			padding: 0 15px;
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
 	}
 	&-block{
 		&-desc{
+			max-width: 310px;
 			display: grid;
 			gap: 16px;
+			align-self: start;
 			p{
 				font-family: @main-font;
 				font-style: normal;
@@ -28,6 +41,17 @@ footer{
 				line-height: 20px;
 				font-feature-settings: 'liga' off;
 				color: #D9DBE1;
+			}
+		}
+		&-second{
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			@media (max-width:900px) {
+				grid-template-columns: 1fr;
+				gap: 120px;
+			}
+			@media (max-width:640px) {
+				gap: 40px;
 			}
 		}		
 	}
@@ -58,6 +82,89 @@ footer{
 				background: url("/img/icons/footer_link_marker.png") center / contain no-repeat;
 				transform: translateY(-50%);
 			}
+		}
+	}
+	&-contact{
+		display: grid;
+		gap: 20px;
+		align-self: start;
+		&-links{
+			color: #D9DBE1;
+			font-size: 14px;
+			padding-left: 33px;
+			position: relative;
+			&::before{
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 20px;
+				height: 20px;
+			}
+			&.mail{
+				&::before{
+					background: url('/img/icons/Message.png') center / contain no-repeat;
+				}
+			}
+			&.phone{
+				&::before{
+					background: url('/img/icons/Mobile.png') center / contain no-repeat;
+				}
+			}
+			&.address{
+				&::before{
+					background: url('/img/icons/Location.png') center / contain no-repeat;
+				}
+			}		
+		}
+	}
+	&-connection{
+		display: grid;
+		gap: 16px;
+		align-self: start;
+	}
+	&-form{
+		display: grid;
+		gap: 16px;
+		&-input{
+			padding: 10px;
+			max-width: 255px;
+			min-height: 40px;
+			font-family: @main-font;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 24px;
+			font-feature-settings: 'liga' off;
+			color: #D9DBE1;
+			border-radius: 8px;
+			background: #33515F;
+			&::placeholder{
+				font-family: @main-font;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 14px;
+				line-height: 24px;
+				color: #D9DBE1;
+			}
+			&:-webkit-autofill {
+				-webkit-box-shadow: inset 0 0 0 50px  #33515F !important; 
+				-webkit-text-fill-color: #D9DBE1 !important; 
+				color:  #D9DBE1 !important;
+				-webkit-appearance: none;
+			}
+		}
+		&-submit{
+			justify-self: start;
+			padding: 10px;
+			min-width: 190px;
+			min-height: 40px;			
+			font-size: 14px;
+			font-family: @main-font;
+			font-weight: bold;
+			color: #fff;
+			border-radius: 8px;
+			background: #F57384;
 		}
 	}
 }
