@@ -1,23 +1,29 @@
 .selectric-white{
 	.selectric {
-		border: none;
 		background: transparent;
 		position: relative;
+		border: 1px solid #BDBDBD;
+		border-radius: 8px;
 		&-wrapper {
 			cursor: pointer;
-			align-self: center;	
+			align-self: center;
+			width: 100%;
 			@media (max-width:940px) {
 				align-self: flex-start;
 			}
 		}	
 		&-items {
+			top: calc(100% + 2px);
 			display: none;
 			background: transparent;
 			border: none;
-			box-shadow: 0px 12px 14px 1px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
 			li.highlighted,
 			li.selected {
 				background: transparent;
+				font-weight: 700;
 				color: #000;
 			}
 			.selectric-scroll{
@@ -28,7 +34,9 @@
 			display: block;
 		}	
 		.label {
-			margin: 0 18px 0 0;
+			position: relative;
+			padding: 8px 31px 8px 70px;
+			margin: 0;
 			display: block;
 			white-space: nowrap;
 			overflow: hidden;
@@ -40,24 +48,41 @@
 			color: #000;
 			height: initial;
 			line-height: unset;
+			text-align: end;
 			@media (max-width:480px) {
 				font-size: 14px;
+			}
+			&::before{
+				content: "Размер";
+				position: absolute;
+				left: 12px;
+				font-family: @main-font;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 20px;
+				color: #333333;
 			}
 		}	
 		&-items li {
 			display: block;
-			padding: 10px;
-			color: #000;
+			padding: 10px 24px;
+			color: #18191F;
 			cursor: pointer;
 			list-style: none;
 			margin: 0;
+			font-family: @main-font;
+			font-style: normal;
+			font-weight: 500;
 			font-size: 14px;
-			line-height: unset;
-			border-bottom: 1px solid #000;	
+			line-height: 20px;
+			border-bottom: 1px solid #DEE0E3;
+			&:last-child{
+				border-bottom: none;
+			}
 			&:hover {
 				background-color: transparent;
-				color: #a68676;
-				border-bottom-color: #a68676;
+				background: #F6F6F6;
 			}
 		}	
 		&-scroll {
@@ -67,6 +92,7 @@
 		.button{
 			height: initial;
 			top: 50%;
+			right: 13px;
 			width: 11px;
 			height: 7px;
 			transform: translateY(-50%);

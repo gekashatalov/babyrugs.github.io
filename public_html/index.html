@@ -16,23 +16,44 @@
 						</button>
 					</li>
 					<li class="header-menu-item">
-						<a href="javascript:void(0)">Каталог</a>
+						<a href="#catalog">Каталог</a>
 					</li>
 					<li class="header-menu-item">
-						<a href="javascript:void(0)">Преимущества</a>
+						<a href="#advantages">Преимущества</a>
 					</li>
 					<li class="header-menu-main">
-						<a href="javascript:void(0)">
+						<span>
 							<img src="/img/Logo.png" alt="Logo">
-						</a>
+						</span>
 					</li>
 					<li class="header-menu-item">
-						<a href="javascript:void(0)">Доставка и оплата</a>
+						<a href="#payments">Доставка и оплата</a>
 					</li>
 					<li class="header-menu-item">
-						<a href="javascript:void(0)">Контакты</a>
+						<a href="#contacts">Контакты</a>
 					</li>
 					<li class="header-menu-out">
+						<a href="https://www.instagram.com/" target="_blank">
+							<img src="/img/inst.png" alt="instagram">
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="header-menu-mobile">
+				<ul class="header-menu-mobile-list">
+					<li class="header-menu-mobile-item">
+						<a href="#catalog">Каталог</a>
+					</li>
+					<li class="header-menu-mobile-item">
+						<a href="#advantages">Преимущества</a>
+					</li>
+					<li class="header-menu-mobile-item">
+						<a href="#payments">Доставка и оплата</a>
+					</li>
+					<li class="header-menu-mobile-item">
+						<a href="#contacts">Контакты</a>
+					</li>
+					<li class="header-menu-mobile-out">
 						<a href="https://www.instagram.com/" target="_blank">
 							<img src="/img/inst.png" alt="instagram">
 						</a>
@@ -106,7 +127,7 @@
 				</div>
 			</section>
 			<!-- Секция каталога товаров -->
-			<section class="catalog">
+			<section class="catalog" id="catalog">
 				<h2>Каталог продукции</h2>
 				<div class="product-block selectric-white">
 					<div class="product-card"><!-- Карточка товара  -->
@@ -350,7 +371,7 @@
 					<p>Основным материалом коврика служит XPE - это нетоксичный вспененный полиуретан. XPE обладает высоким термоизоляционным эффектом, что делает коврик очень тёплым. Верхним покрытием коврика, является пищевая плёнка, что делает коврик устойчивым к влаге и защищает рисунок от повреждения.</p>
 				</div>
 			</section>
-			<section class="advantages">
+			<section class="advantages" id="advantages">
 				<h2>Лучший детский коврик</h2>
 				<p>Они предназначены для досуга ребенка, отдыха, развития в форме игры,имеют массажную поверхность. На них можно ползать и учится ходить,<span> но и это не все...</span></p>
 				<div class="advantages-items">
@@ -437,7 +458,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="payments-section">
+			<section class="payments-section" id="payments">
 				<h2>Оплата и доставка</h2>
 				<div class="payments-container">
 					<div class="payments">
@@ -493,7 +514,7 @@
 					</div>
 				</div>
 				<div class="footer-block-second">
-					<div class="footer-contact">
+					<div class="footer-contact" id="contacts">
 						<h6>
 							Контакты
 						</h6>
@@ -511,12 +532,33 @@
 						<h6>
 							Как связаться с нами
 						</h6>
-						<form method="GET" class="footer-form">
+						<form method="POST" class="footer-form">
 							<input class="footer-form-input" type="text" name="name" placeholder="Имя">
 							<input class="footer-form-input" type="text" name="phone" placeholder="Ваш телефон">
 							<input class="footer-form-submit" type="submit" value="Оставить заявку">
 						</form>				
 					</div>		
+				</div>
+				<div class="footer-block-nav">
+					<nav class="footer-menu">
+						<ul class="footer-menu-list">
+							<li>
+								<a href="#catalog">Каталог</a>
+							</li>
+							<li>
+								<a href="#advantages">Преимущества</a>
+							</li>
+							<li>
+								<a href="#payments">Доставка и оплата</a>
+							</li>
+							<li>
+								<a href="#contacts">Контакты</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="footer-created">
+						© 2020 Babyrugs. All rights reserved
+					</div>
 				</div>
 			</div>			
 		</footer>

@@ -94,12 +94,22 @@ main{
 				font-size: 20px;
 				line-height: 30px;
 				text-align: center;
+				transition: all .1s linear;
 				@media (max-width:640px){
 					margin-top: 24px;
 					min-width: 160px;
 					padding: 10px;
 					font-size: 14px;
 					line-height: 20px;
+				}
+				&:hover{
+					background-color: #27B1F5;
+				}
+				&:disabled{
+					background-color: #ADDFF8;
+				}
+				&:active{
+					transform: scale(1.02);
 				}
 			}
 		}
@@ -447,6 +457,9 @@ h6{
 		grid-template-columns: repeat(3, 1fr);
 		gap: 64px 5%;
 		justify-items: center;
+		@media (max-width:1240px) {
+			gap: 64px 2%;
+		}
 		@media (max-width:990px) {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 24px;
@@ -467,8 +480,9 @@ h6{
 		.block-size{
 			display: flex;
 			justify-content: space-between;
-			padding: 0 24px;
+			padding: 0 5%;
 			&-title{
+				display: none;
 				font-family: @main-font;
 				font-style: normal;
 				font-weight: 500;
@@ -480,7 +494,8 @@ h6{
 		.block-prices{
 			display: flex;
 			justify-content: space-between;
-			padding: 0 24px;
+			padding: 0 5%;
+			align-items: center;
 		}
 		.btn-buy{
 			justify-self: center;
@@ -499,6 +514,16 @@ h6{
 			text-align: center;
 			font-feature-settings: 'liga' off;
 			color: #FFFFFF;
+			transition: all 0.1s linear;
+			&:hover{
+				background-color: #27B1F5;
+			}
+			&:disabled{
+				background-color: #ADDFF8;
+			}
+			&:active{
+				transform: scale(1.02);
+			}
 		}
 		.product-image{
 			display: flex;

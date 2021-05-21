@@ -14,12 +14,13 @@ footer{
 		padding: 0 40px;
 		display: grid;
 		grid-template-columns: 1.5fr 3.5fr;
-		gap: 64px;
+		gap: 48px 64px;
 		@media (max-width:1024px){
 			margin: 40px auto 0;
 		}
 		@media (max-width:900px) {			
 			grid-template-columns: 1fr 1fr;
+			gap: 80px 64px;
 		}
 		@media (max-width:640px) {
 			padding: 0 15px;
@@ -53,7 +54,17 @@ footer{
 			@media (max-width:640px) {
 				gap: 40px;
 			}
-		}		
+		}
+		&-nav{
+			grid-column: ~"1 / -1";
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 8px;
+			@media (max-width:900px) {
+				flex-direction: column;
+				margin-bottom: 32px;
+			}
+		}
 	}
 	&-links{
 		display: grid;
@@ -69,9 +80,7 @@ footer{
 			line-height: 16px;
 			font-feature-settings: 'liga' off;
 			color: #70BEE4;
-			&:hover{
-				color: #27B1F5;
-			}
+			transition: transform 0.1s linear;		
 			&::after{
 				content: "";
 				position: absolute;
@@ -79,8 +88,18 @@ footer{
 				top: 50%;
 				width: 15px;
 				height: 10px;
-				background: url("/img/icons/footer_link_marker.png") center / contain no-repeat;
+				background: url("/img/icons/sprite.png") left no-repeat;
+				background-size: 30px;
 				transform: translateY(-50%);
+			}
+			&:hover{
+				color: #27B1F5;
+				&::after{
+					background-position: right;
+				}
+			}
+			&:active{
+				transform: scale(1.02);
 			}
 		}
 	}
@@ -165,6 +184,45 @@ footer{
 			color: #fff;
 			border-radius: 8px;
 			background: #F57384;
+			transition: all 0.1s linear;
+			&:hover{
+				background-color: #F4536B;
+			}
+			&:disabled{
+				background-color: #FBC7CE;
+			}
+			&:active{
+				transform: scale(1.02);
+			}
 		}
+	}
+	&-menu{
+		&-list{
+			display: flex;
+			flex-wrap: wrap;
+			li{
+				margin-right: 29px;
+				margin-bottom: 16px;
+				a{
+					padding: 5px 0;
+					font-family: @main-font;
+					font-style: normal;
+					font-weight: bold;
+					font-size: 14px;
+					line-height: 20px;
+					font-feature-settings: 'liga' off;
+					color: #D9DBE1;
+				}
+			}
+		}
+	}
+	&-created{
+		font-family: @main-font;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 20px;
+		font-feature-settings: 'liga' off;
+		color: #D9DBE1;
 	}
 }
