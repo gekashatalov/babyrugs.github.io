@@ -112,6 +112,9 @@ footer{
 			font-size: 14px;
 			padding-left: 33px;
 			position: relative;
+			&:hover{
+				text-decoration: underline;
+			}
 			&::before{
 				content: "";
 				position: absolute;
@@ -145,6 +148,11 @@ footer{
 	&-form{
 		display: grid;
 		gap: 16px;
+		label.error{
+			color: #F4536B;
+			font-size: 12px;
+			line-height: 100%;
+		}
 		&-input{
 			padding: 10px;
 			max-width: 255px;
@@ -212,6 +220,9 @@ footer{
 					line-height: 20px;
 					font-feature-settings: 'liga' off;
 					color: #D9DBE1;
+				}
+				&:hover{
+					text-decoration: underline;
 				}
 			}
 		}

@@ -3,8 +3,12 @@ $(document).ready(function (){
 	productSizeSelectric();
 	swiperSlider();
 	timer();
-	footerFormSend();
+	footerFormValidate();
+	// footerFormSend();
 	animateScroll();
+	maskedPhone();
+	informFancyBox();
+	customScroll();
 });
 //
 function burgerBtnToggler(){
@@ -16,7 +20,23 @@ function burgerBtnToggler(){
 }
 //initial custom select
 function productSizeSelectric () {
-	$('select.product-size').selectric();
+	$('select.product-size').selectric().on('change', function(){
+		let beforePrice = $(this).parents('.product-card').find('.before-price').toArray();
+		let currentPrice = $(this).parents('.product-card').find('.curent-price').toArray();
+		let selectedItem = $(this).parents('.product-card').find('.selectric-items>.selectric-scroll>ul>li.selected').data('index');
+		beforePrice.forEach(element => {
+			if($(element).data('index') == selectedItem){
+				$(beforePrice).not(element).addClass('hidden');
+				$(element).removeClass('hidden');
+			}
+		});
+		currentPrice.forEach(element => {
+			if($(element).data('index') == selectedItem){
+				$(currentPrice).not(element).addClass('hidden');
+				$(element).removeClass('hidden');
+			}
+		});
+	});
 }
 //initial swiper-slider
 function swiperSlider(){
@@ -56,7 +76,7 @@ function timer(){
 	}
 	function tick() {
 		let now = new Date();
-		if (now > start) { // too late, go to tomorrow
+		if (now > start) {
 			start.setHours(start.getHours() + 12);
 		}
 		let remain = ((start - now) / 1000);
@@ -66,7 +86,6 @@ function timer(){
 		timerHours.text(hh);
 		timerMinutes.text(mm);
 		timerSeconds.text(ss);
-		// console.log(hh + ":" + mm + ":" + ss);
 		setTimeout(tick, 1000);
 	}
 	tick();
@@ -89,6 +108,7 @@ function animateScroll() {
 	$('.header-menu-item>a').on('click', scroll);
 	$('.header-menu-mobile-item>a').on('click', scroll);
 	$('.footer-menu-list>li>a').on('click', scroll);
+	$('.baner-block-description>a').on('click', scroll);
 	function scroll(){
 		let getSectionID = $(this).attr('href');
 		$('html, body').animate({
@@ -98,4 +118,49 @@ function animateScroll() {
 			easing: "linear"
 		});
 	}
+}
+//Маска для ввода телефона
+function maskedPhone(){
+	let footerFormPhone = $('.footer-form>input[name=phone]');
+	footerFormPhone.mask("+38 (099) 999 99 99", {
+		autoclear: false,
+	});
+}
+//Валидация формы подвала
+function footerFormValidate(){
+	let form = $('.footer-form');
+	form.validate({
+		rules: {
+			"phone": {
+				required: true,
+			},
+		},
+		messages: {
+			"phone": {
+				required: "Введите номер телефона",
+			}
+		},
+		submitHandler:	function(){
+			$.ajax({
+				type: "POST",
+				url: "mail.php",
+				data: $(this).serialize()
+			}).done(function() {
+				window.location = "/thanks";
+			});
+			return false;
+		}
+	});
+}
+//инициализация fancy-popup для информативных окошек
+function informFancyBox(){
+	$('.fancy-popup').fancybox({
+		smallBtn: false,
+		baseClass: 'custom-fancybox',
+		touch: false,
+	});
+}
+//кастомный скролл для popup
+function customScroll() {
+	$('.inform-content').mCustomScrollbar();
 }

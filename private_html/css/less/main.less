@@ -879,3 +879,70 @@ h6{
 .delivery{
 	background: #FBC7CE;
 }
+.hidden{
+	display: none;
+}
+.inform{
+	&-popup{
+		display: none;
+	}
+}
+.custom-fancybox{
+	.fancybox-bg{
+		background: #f8f8f845;
+	}
+	.fancybox-button{
+		display: none;
+	}
+	.inform{
+		&-popup{
+			max-width: 550px;
+			height: 382px;
+			// padding: 16px 32px 26px;
+			padding: 0;
+			overflow: hidden;
+			border-radius: 32px;
+			box-shadow: 6px 10px 24px rgba(0, 0, 0, 0.11);
+		}
+		&-header{
+			padding: 16px 32px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			// margin-bottom: 16px;
+		}
+		&-close{
+			width: 24px;
+			height: 24px;
+			border: none;
+			background: url(/img/icons/close_popup.png) center / contain no-repeat;
+		}
+		&-content{
+			max-height: 298px;
+			padding-left: 32px;
+			overflow: auto;
+			p{
+				font-family: @main-font;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 10px;
+				line-height: 20px;
+				font-feature-settings: 'liga' off;
+				color: #000000;
+			}
+			.mCSB_inside>.mCSB_container{
+				margin-right: 32px;
+			}
+			.mCSB_scrollTools .mCSB_draggerRail{
+				width: 4px;
+			}
+			.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+				background-color: #E0E0E0;
+				border-radius: 6px;
+			}
+			.mCSB_scrollTools .mCSB_draggerRail{
+				background: transparent;
+			}
+		}
+	}
+}
