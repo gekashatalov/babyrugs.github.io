@@ -143,10 +143,10 @@ function footerFormValidate(){
 		submitHandler:	function(){
 			$.ajax({
 				type: "POST",
-				url: "mail.php",
+				url: "/mail.php",
 				data: $(this).serialize()
 			}).done(function() {
-				window.location = "/thanks";
+				// window.location = "/thanks";
 			});
 			return false;
 		}
