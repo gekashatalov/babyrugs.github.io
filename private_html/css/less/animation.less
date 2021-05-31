@@ -1,0 +1,122 @@
+@-webkit-keyframes pageTitleUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(100px);
+		transform: translateY(100px);
+	}  
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		transition: opacity .4s cubic-bezier(.22,.94,.44,1) 0s,transform 1.5s cubic-bezier(.22,.94,.44,1) 0s;
+	}
+}  
+@keyframes pageTitleUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(100px);
+		-ms-transform: translateY(100px);
+		transform: translateY(100px);
+	}  
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+		transition: opacity .4s cubic-bezier(.22,.94,.44,1) 0s,transform 1.5s cubic-bezier(.22,.94,.44,1) 0s;
+	}
+} 
+.pageTitleUp {
+	-webkit-animation-name: pageTitleUp;
+	animation-name: pageTitleUp;
+	transition: opacity .4s cubic-bezier(.22,.94,.44,1) 0s,transform 1.5s cubic-bezier(.22,.94,.44,1) 0s;
+}
+@-webkit-keyframes customFadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0,120px,0);
+		transform: translate3d(0,120px,0);
+	}  
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		transition: transform 1.5s cubic-bezier(.22,.94,.44,1),opacity .8s cubic-bezier(.215,.61,.355,1);
+	}
+}  
+@keyframes customFadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0,120px,0);
+		-ms-transform: translate3d(0,120px,0);
+		transform: translate3d(0,120px,0);
+	}  
+	100% {
+		opacity: 1;
+		-webkit-transform:translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		transition: transform 1.5s cubic-bezier(.22,.94,.44,1),opacity .8s cubic-bezier(.215,.61,.355,1);
+	}
+}  
+.customFadeInUp {
+	-webkit-animation-name: customFadeInUp;
+	animation-name: customFadeInUp;
+	transition: transform 1.5s cubic-bezier(.22,.94,.44,1),opacity .8s cubic-bezier(.215,.61,.355,1);
+}
+  
+@keyframes clipPathImageShow {
+	0% {
+		clip-path: inset(0 100% 0 0);
+	}  
+	100% {
+		clip-path: inset(0);
+	}
+}  
+.clipPathImageShow {
+	-webkit-animation-name: clipPathImageShow;
+	animation-name: clipPathImageShow;
+}
+
+  
+@keyframes clipPathImageShowRight {
+	0% {
+		clip-path: inset(0 0 0 100%);
+	}  
+	100% {
+		clip-path: inset(0);
+	}
+}  
+.clipPathImageShowRight {
+	-webkit-animation-name: clipPathImageShowRight;
+	animation-name: clipPathImageShowRight;
+}
+  
+@keyframes getwellyUpEffect {
+	0% {
+		opacity: 0;
+		transform: translateY(8vw);
+	}  
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}  
+.getwellyUpEffect {
+	-webkit-animation-name: getwellyUpEffect;
+	animation-name: getwellyUpEffect;
+}
+  
+@keyframes bgPromotionAnimate {
+	0% {
+		background: none;
+	}  
+	100% {
+		background: url(/local/templates/lulka/images/shops/promotion_bg.png) 50% 40px/contain no-repeat;
+	}
+}  
+.bgPromotionAnimate {
+	-webkit-animation-name: bgPromotionAnimate;
+	animation-name: bgPromotionAnimate;
+}

@@ -45,7 +45,7 @@ function buildScripts() {
 			"private_html/js/vendors/*.js",
 			"private_html/js/site.*.js",
 		])
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(concat('all.min.js'))
 		.pipe(gulp.dest('public_html/js'))
 	);

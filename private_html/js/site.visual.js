@@ -4,13 +4,15 @@ $(document).ready(function (){
 	swiperSlider();
 	timer();
 	footerFormValidate();
-	// footerFormSend();
 	animateScroll();
 	maskedPhone();
 	informFancyBox();
 	customScroll();
+	buyProduct();
+	wowAnimate();
+	setMainMenuAnimateDelay ();
 });
-//
+//Переключатель активности мобильной кнопки меню, и появление/скрытие самого меню
 function burgerBtnToggler(){
 	let button = $('.header-menu-burger');
 	button.on('click', function(){
@@ -90,19 +92,6 @@ function timer(){
 	}
 	tick();
 }
-//Отправка данных из формы на сервер
-function footerFormSend(){
-	$('.footer-form').on('submit', function(){
-		$.ajax({
-            type: "POST",
-            url: "mail.php",
-            data: $(this).serialize()
-        }).done(function() {
-            window.location = "/thanks";
-        });
-        return false;
-	})
-}
 //Плавный скролл к секции
 function animateScroll() {
 	$('.header-menu-item>a').on('click', scroll);
@@ -122,9 +111,9 @@ function animateScroll() {
 //Маска для ввода телефона
 function maskedPhone(){
 	let footerFormPhone = $('.footer-form>input[name=phone]');
-	footerFormPhone.mask("+38 (099) 999 99 99", {
-		autoclear: false,
-	});
+	let popUpFormPhone = $('#form_buy form input[name=buy_phone]')
+	footerFormPhone.mask("+38 (099) 999 99 99");
+	popUpFormPhone.mask("+38 (099) 999 99 99");
 }
 //Валидация формы подвала
 function footerFormValidate(){
@@ -133,20 +122,30 @@ function footerFormValidate(){
 		rules: {
 			"phone": {
 				required: true,
+				minlength: 19,
 			},
 		},
 		messages: {
 			"phone": {
 				required: "Введите номер телефона",
+				minlength: "Номер должен быть в формате +38 (099) 999 99 99",
 			}
 		},
 		submitHandler:	function(){
 			$.ajax({
 				type: "POST",
-				url: "/mail.php",
-				data: $(this).serialize()
-			}).done(function() {
-				// window.location = "/thanks";
+				url: "/mailFooter.php",
+				data: form.serialize(),
+				success: function() {
+					$.fancybox.open({
+						src: '#popup_thanks',
+						opts: {
+							smallBtn: false,
+							baseClass: 'custom-fancybox',
+							touch: false,
+						}
+					});
+				}
 			});
 			return false;
 		}
@@ -163,4 +162,120 @@ function informFancyBox(){
 //кастомный скролл для popup
 function customScroll() {
 	$('.inform-content').mCustomScrollbar();
+}
+//Функция для открытия формы при заказе товара и отправка данных на сервер
+function buyProduct(){
+	let productCard = $('.product-card');
+	productCard.on('click', '.btn-buy', function(){
+		$.fancybox.open({
+			src: '#form_buy',
+			opts: {
+				smallBtn: false,
+				baseClass: 'custom-fancybox',
+				touch: false,
+			}
+		});
+		let productName = $(this).parents('.product-card').find('.product-name').text();
+		let productSize = $(this).parents('.product-card').find('.selectric-items .selectric-scroll ul>li.selected').text();
+
+		let form = $('#form_buy form');
+		form.validate({
+			rules: {
+				"buy_phone": {
+					required: true,
+					minlength: 19,
+				},
+			},
+			messages: {
+				"buy_phone": {
+					required: "Введите номер телефона",
+					minlength: "Номер должен быть в формате +38 (099) 999 99 99"
+				}
+			},
+			submitHandler:	function(e){
+				let data = form.serialize() + "&productName=" + productName + "&productSize=" + productSize;
+				$.ajax({
+					type:"POST",
+					url:"/mail.php",
+					data: data,
+					success: function() {
+						window.location = "/thanks";
+					}
+				});
+			}
+		});
+	});
+}
+//Инициализация wow плагина
+function wowAnimate(){
+	let wow = new WOW({
+		offset:100,
+		visibility: 'hidden',
+		callback: function(box){
+			if($(box).hasClass('animate')){
+				$(box).addClass('animate-active');
+			}
+		}
+	});
+	wow.init();	
+}
+//Функция установки задержки анимации на главной странице
+function setMainMenuAnimateDelay (){
+	let productCard = $('.product-card');
+	if(productCard.length != 0){
+		if($(window).width() > 990){
+			for(i = 0; i < productCard.length; i+=3){
+				$(productCard[i]).attr('data-wow-delay', '0s');
+				$(productCard[i+1]).attr('data-wow-delay', '0.1s');
+				$(productCard[i+2]).attr('data-wow-delay', '0.2s');
+			}
+		}
+		if($(window).width() <= 990 && $(window).width() > 680){
+			for(i = 0; i < productCard.length; i+=2){
+				$(productCard[i]).attr('data-wow-delay', '0s');
+				$(productCard[i+1]).attr('data-wow-delay', '0.1s');
+			}
+		} else if($(window).width() <= 680){
+			for(i = 0; i < productCard.length; i++){
+				$(productCard[i]).attr('data-wow-delay', '0s');
+			}
+		}
+	}
+	let advantagesItem = $('.advantages-items-item');
+	if(advantagesItem.length != 0){
+		if($(window).width() > 990){
+			for(i = 0; i < advantagesItem.length; i+=3){
+				$(advantagesItem[i]).attr('data-wow-delay', '0s');
+				$(advantagesItem[i+1]).attr('data-wow-delay', '0.1s');
+				$(advantagesItem[i+2]).attr('data-wow-delay', '0.2s');
+			}
+		}
+		if($(window).width() <= 990 && $(window).width() > 640){
+			for(i = 0; i < advantagesItem.length; i+=2){
+				$(advantagesItem[i]).attr('data-wow-delay', '0s');
+				$(advantagesItem[i+1]).attr('data-wow-delay', '0.1s');
+			}
+		} else if($(window).width() <= 640){
+			for(i = 0; i < advantagesItem.length; i++){
+				$(advantagesItem[i]).attr('data-wow-delay', '0s');
+			}
+		}
+	}
+	let feedbackItem = $('.feedback');
+	if(feedbackItem.length != 0){
+		if($(window).width() > 990){
+			for(i = 0; i < feedbackItem.length; i+=4){
+				$(feedbackItem[i]).attr('data-wow-delay', '0s');
+				$(feedbackItem[i+1]).attr('data-wow-delay', '0.1s');
+				$(feedbackItem[i+2]).attr('data-wow-delay', '0.2s');
+				$(feedbackItem[i+3]).attr('data-wow-delay', '0.3s');
+			}
+		}
+		if($(window).width() <= 990){
+			for(i = 0; i < feedbackItem.length; i+=2){
+				$(feedbackItem[i]).attr('data-wow-delay', '0s');
+				$(feedbackItem[i+1]).attr('data-wow-delay', '0.1s');
+			}
+		}
+	}
 }
