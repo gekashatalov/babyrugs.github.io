@@ -120,3 +120,47 @@
 	-webkit-animation-name: bgPromotionAnimate;
 	animation-name: bgPromotionAnimate;
 }
+.animate.imageShowEffect{
+	position: relative;
+	&::after{
+		content: "";
+		display: block;
+		position: absolute;
+		top: -1px;
+		right: 0;
+		bottom: -1px;
+		width: calc(~"100% + 2px");
+		background-color: #fff;
+		z-index: 5;
+		transition: width 1050ms cubic-bezier(0.215, 0.61, 0.355, 1),background-color 350ms linear,visibility 0ms linear 1050ms;
+	}
+}
+.animate.imageShowEffectLeft{
+	position: relative;
+	&::after{
+		content: "";
+		display: block;
+		position: absolute;
+		top: -1px;
+		left: 0;
+		bottom: -1px;
+		width: calc(~"100% + 2px");
+		background-color: #fff;
+		z-index: 5;
+		transition: width 1050ms cubic-bezier(0.215, 0.61, 0.355, 1),background-color 350ms linear,visibility 0ms linear 1050ms;
+	}
+}
+.animate-active.animate.imageShowEffect{
+	--imageShow-delay: 0s;
+	&::after{
+		width: 0;
+		transition: width 1050ms cubic-bezier(0.215, 0.61, 0.355, 1) var(--imageShow-delay) ,background-color 350ms linear,visibility 0ms linear ;
+	}
+}
+.animate-active.animate.imageShowEffectLeft{
+	--imageShow-delay: 0s;
+	&::after{
+		width: 0;
+		transition: width 1050ms cubic-bezier(0.215, 0.61, 0.355, 1) var(--imageShow-delay) ,background-color 350ms linear,visibility 0ms linear ;
+	}
+}

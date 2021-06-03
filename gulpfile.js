@@ -25,6 +25,7 @@ function buildStyles() {
 	cssData.pipe(cssnano({
 		zindex: false,
 		discardUnused: false,
+		autoprefixer: false,
 	}));
 	cssData.pipe(gulp.dest('public_html/css'));
 	return cssData;
@@ -55,12 +56,12 @@ function watchFiles() {
 	gulp.watch('private_html/css/**/*.*', buildStyles);
 	gulp.watch('private_html/js/**/*.*', buildScripts);
 	gulp.watch('private_html/fonts/**/*.*', buildFonts);
-	// browserSync.init({
-	// 	// tunnel: "my-custom-site",
-    //     server: {			
-    //         baseDir: "./public_html/",
-    //     },
-    // });
+	browserSync.init({
+		// tunnel: "my-custom-site",
+        server: {			
+            baseDir: "./public_html/",
+        },
+    });
 };
 
 const build = gulp.parallel(buildStyles, buildScripts, buildFonts);

@@ -209,7 +209,7 @@ function buyProduct(){
 //Инициализация wow плагина
 function wowAnimate(){
 	let wow = new WOW({
-		offset:100,
+		offset:200,
 		visibility: 'hidden',
 		callback: function(box){
 			if($(box).hasClass('animate')){
