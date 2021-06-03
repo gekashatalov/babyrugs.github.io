@@ -143,6 +143,7 @@ function footerFormValidate(){
 							smallBtn: false,
 							baseClass: 'custom-fancybox',
 							touch: false,
+							hideScrollbar: false,							
 						}
 					});
 				}
@@ -157,6 +158,7 @@ function informFancyBox(){
 		smallBtn: false,
 		baseClass: 'custom-fancybox',
 		touch: false,
+		hideScrollbar: false,
 	});
 }
 //кастомный скролл для popup
@@ -173,6 +175,7 @@ function buyProduct(){
 				smallBtn: false,
 				baseClass: 'custom-fancybox',
 				touch: false,
+				hideScrollbar: false,
 			}
 		});
 		let productName = $(this).parents('.product-card').find('.product-name').text();
